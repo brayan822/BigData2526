@@ -1,0 +1,18 @@
+-- Cargar líneas del texto
+quijote = LOAD '/user/maria_dev/el_quijote.txt' USING PigStorage('\n') AS (line:chararray);
+
+-- Tokenizar
+palabras = FOREACH quijote GENERATE FLATTEN(TOKENIZE(LOWER(line))) AS palabra;
+
+-- Quitar tokens vacíos
+limpias = FILTER palabras BY palabra IS NOT NULL AND palabra != '';
+
+-- Agrupar y contar
+grp = GROUP limpias BY palabra;
+conteo = FOREACH grp GENERATE group AS palabra, COUNT(limpias) AS total;
+
+-- Ordenar descendente
+ordenado = ORDER conteo BY total DESC;
+
+-- Guardar
+STORE ordenado INTO '/user/maria_dev/pig_quijote' USING PigStorage('\t');
