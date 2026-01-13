@@ -1,0 +1,26 @@
+[
+  {
+    "id": "P001",
+    "nombre": "Laptop Ultradelgada",
+    "categoria": "Electrónica",
+    "precio": 1200.50,
+    "en_stock": true,
+    "etiquetas": ["portátil", "ligero", "oficina"]
+  },
+  {
+    "id": "P002",
+    "nombre": "Taza de Cerámica",
+    "categoria": "Hogar",
+    "precio": 15.99,
+    "en_stock": false,
+    "etiquetas": ["cocina", "regalo"]
+  },
+  {
+    "id": "P003",
+    "nombre": "Libro de Cocina Vegana",
+    "categoria": "Libros",
+    "precio": 25.00,
+    "en_stock": true,
+    "etiquetas": ["recetas", "saludable"]
+  }
+]
